@@ -9,7 +9,7 @@ namespace BussinessLayer.Abstract
 {
     public interface ICategoryService
     {
-        List<Category> GetCategoryList();
+        List<Category> GetList();
     }
 
 }
