@@ -63,7 +63,7 @@ namespace MVCProjectCamp.Controllers
         [HttpPost]
         public ActionResult EditCategory(Category p)
         {
-            cm.CategoryAdd(p);
+            cm.CategoryUpdate(p);
             return RedirectToAction("Index");
         }
     }
