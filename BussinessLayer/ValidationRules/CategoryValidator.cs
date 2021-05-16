@@ -12,8 +12,8 @@ namespace BussinessLayer.ValidationRules
     {
         public CategoryValidator()
         {
-            RuleFor(x => x.CategoryName).NotEmpty().WithMessage("Kategori Adını Boş Geçemezsiniz");
-            RuleFor(x => x.CategoryDescription).NotEmpty().WithMessage("Açıklamayı Boş Geçemezsiniz");
+            RuleFor(x => x.CategoryName).NotEmpty().WithMessage("Kategori adını boş geçemezsiniz");
+            RuleFor(x => x.CategoryDescription).NotEmpty().WithMessage("Açıklamayı boş geçemezsiniz");
             RuleFor(x => x.CategoryName).MinimumLength(3).WithMessage("Lütfen en az 3 karakter girişi yapın");
             RuleFor(x => x.CategoryName).MaximumLength(80).WithMessage("Lütfen 80 karakterden fazla değer girişi yapmayın");
         }
