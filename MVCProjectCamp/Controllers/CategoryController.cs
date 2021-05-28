@@ -9,19 +9,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-
 namespace MVCProjectCamp.Controllers
 {
     public class CategoryController : Controller
     {
-        // GET: Category
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
         public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult GetCategoryList()
         {
             var categoryvalues = cm.GetList();
             return View(categoryvalues);
@@ -33,26 +26,45 @@ namespace MVCProjectCamp.Controllers
             return View();
         }
 
-
         [HttpPost]
         public ActionResult AddCategory(Category p)
         {
-            // cm.CategoryAddBL(p);
             CategoryValidator categoryValidator = new CategoryValidator();
-            ValidationResult result = categoryValidator.Validate(p);
-            if (result.IsValid)
+            ValidationResult results = categoryValidator.Validate(p);
+            if (results.IsValid)
             {
                 cm.CategoryAdd(p);
-                return RedirectToAction("GetCategoryList");
+                return RedirectToAction("Index");
             }
             else
             {
-                foreach (var item in result.Errors)
+                foreach (var item in results.Errors)
                 {
-                    ModelState.AddModelError(item.PropertyName,item.ErrorMessage);
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
             return View();
+        }
+
+        public ActionResult DeleteCategory(int id)
+        {
+            var categoryValue = cm.GetByID(id);
+            cm.CategoryDelete(categoryValue);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult EditCategory(int id)
+        {
+            var categoryValue = cm.GetByID(id);
+            return View(categoryValue);
+        }
+
+        [HttpPost]
+        public ActionResult EditCategory(Category p)
+        {
+            cm.CategoryUpdate(p);
+            return RedirectToAction("Index");
         }
     }
 }

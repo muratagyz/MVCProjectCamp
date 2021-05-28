@@ -1,48 +1,30 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Category>
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<h3>MVC Kamp Tablo Örneği - Kategori</h3>
-<br />
-<table class="table table-bordered">
 
+<br />
+<table class="table table-bordered ">
     <tr>
-        <th>ID</th>
+        <th>#</th>
         <th>Kategori Adı</th>
-        <th>Açıklama</th>
-        <th>Durum</th>
+        <th>Sil</th>
         <th>Güncelle</th>
+        <th>Başlıklar</th>
     </tr>
-    <tr>
-        <td>1</td>
-        <td>Eğitim</td>
-        <td>Açıklama Yaptık</td>
-        <td>True</td>
-        <td><button class="btn btn-success">Güncelle</button></td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Spor</td>
-        <td>Açıklama Yaptık</td>
-        <td>True</td>
-        <td><button class="btn btn-success">Güncelle</button></td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>Kitap</td>
-        <td>Açıklama Yaptık</td>
-        <td>True</td>
-        <td><button class="btn btn-success">Güncelle</button></td>
-    </tr>
-    <tr>
-        <td>4</td>
-        <td>Sinema</td>
-        <td>Açıklama Bekleniyor</td>
-        <td>True</td>
-        <td><button class="btn btn-success">Güncelle</button></td>
-    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.CategoryID</th>
+            <td>@item.CategoryName</td>
+            <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Category/EditCategory/@item.CategoryID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="#" class="btn btn-primary">Başlıklar</a></td>
+        </tr>
+    }
 </table>
-<button class="btn btn-info">Yeni Kategori</button>
-<button class="btn btn-warning">Kategori Listesi</button>
-<button class="btn btn-danger">Kategori Açıklamaları</button>
+<a href="/Category/AddCategory" class="btn btn-primary">Yeni Kategori</a>
+
+
