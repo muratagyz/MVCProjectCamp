@@ -72,7 +72,7 @@
                                     </a>
                                     <br />
                                     <small>
-                                        @(((DateTime)item.HeadingDate).ToString("dd-mm-yyyy"))
+                                        @(((DateTime)item.HeadingDate).ToString("dd-MM-yyyy"))
                                     </small>
                                 </td>
                                 <td>
@@ -86,7 +86,7 @@
                                     <span class="@color">@item.Category.CategoryName</span>
                                 </td>
                                 <td class="project-actions text-right">
-                                    <a class="btn btn-primary btn-sm" href="#">
+                                    <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading/@item.HeadingID">
                                         <i class="fas fa-folder">
                                             Yazılar
                                         </i>
@@ -113,24 +113,6 @@
     </section>
 </body>
 </html>
-@*<h2>Başlıklar Sayfası</h2>
-    <br />
-    <table class="table table-bordered">
-        <tr>
-            <td>#</td>
-            <td>Başlık</td>
-            <td>Kategori</td>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.HeadingID</td>
-                <td>@item.HeadingName</td>
-                <td>@item.Category.CategoryName</td>
-            </tr>
-        }
-    </table>
-    <br />
-    <a href="/Heading/AddHeading/" class="btn btn-info">Yeni Başlık</a>*@
+<a href="/Heading/AddHeading" class="btn btn-primary">Yeni Başlık Ekle</a>
 
 
