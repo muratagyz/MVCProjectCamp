@@ -10,7 +10,7 @@
 {
 <div class="form-group">
     @Html.Label("Yazar Adı")
-    @Html.TextAreaFor(x => x.WriterName, new { @class = "form-control" })
+    @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.WriterName)
     <br />
     @Html.Label("Yazar Soyad")

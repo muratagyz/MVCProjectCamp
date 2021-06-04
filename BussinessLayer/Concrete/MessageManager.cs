@@ -18,9 +18,9 @@ namespace BussinessLayer.Concrete
             _messageDal = messageDal;
         }
 
-        public Category GetByID(int id)
+        public Message GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _messageDal.Get(x => x.MessageID == id);
         }
 
         public List<Message> GetListInbox()

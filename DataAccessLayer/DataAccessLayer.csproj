@@ -100,6 +100,10 @@
     <Compile Include="Migrations\202106010908386_add_message_class.designer.cs">
       <DependentUpon>202106010908386_add_message_class.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106041630474_mig_contactdate.cs" />
+    <Compile Include="Migrations\202106041630474_mig_contactdate.designer.cs">
+      <DependentUpon>202106041630474_mig_contactdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -137,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106010908386_add_message_class.resx">
       <DependentUpon>202106010908386_add_message_class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106041630474_mig_contactdate.resx">
+      <DependentUpon>202106041630474_mig_contactdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
