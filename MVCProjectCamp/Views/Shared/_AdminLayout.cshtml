@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -165,7 +166,7 @@ to get the desired effect
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="/Gallery/Index" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Galeri
@@ -173,11 +174,10 @@ to get the desired effect
                             </a>
                         </li>
                         <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
+                            <a href="/ErrorPage/Page404" class="nav-link">
                                 <i class="nav-icon far fa-envelope"></i>
                                 <p>
                                     Hata Sayfaları
-                                    <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                         </li>
@@ -188,9 +188,11 @@ to get the desired effect
             <!-- /.sidebar -->
         </aside>
         <!-- Content Wrapper. Contains page content -->
+
         <div class="content-wrapper">
             <!-- Main content -->
             <div class="content">
+
                 @RenderBody()
                 <!-- /.container-fluid -->
             </div>
@@ -198,9 +200,6 @@ to get the desired effect
         </div>
         <!-- /.content-wrapper -->
     </div>
-    <!-- ./wrapper -->
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
     <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -210,5 +209,6 @@ to get the desired effect
     <script src="~/AdminLTE-3.0.4/plugins/chart.js/Chart.min.js"></script>
     <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
     <script src="~/AdminLTE-3.0.4/dist/js/pages/dashboard3.js"></script>
+
 </body>
 </html>

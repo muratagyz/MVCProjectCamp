@@ -1,0 +1,67 @@
+﻿@using EntityLayer.Concrete
+@model List<ImageFile>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AdminLTE 3 | Gallery</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Ekko Lightbox -->
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/ekko-lightbox/ekko-lightbox.css">
+</head>
+<body class="hold-transition sidebar-mini">
+    <br />
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <div class="card-title">
+                                Sözlük Galerisi
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-sm-3  text-center">
+                                        <div class="card">
+                                            <img class="card-img-top" src="@item.ImagePath" alt="Card image cap">
+                                            <div class="card-body">
+                                                <p class="card-text">@item.ImageName</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/AdminLTE-3.0.4/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Ekko Lightbox -->
+    <script src="~/AdminLTE-3.0.4/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+    <!-- Filterizr-->
+    <script src="~/AdminLTE-3.0.4/plugins/filterizr/jquery.filterizr.min.js"></script>
+    <!-- Page specific script -->
+</body>
+</html>
