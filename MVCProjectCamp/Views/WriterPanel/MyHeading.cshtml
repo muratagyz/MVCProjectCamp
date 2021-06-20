@@ -1,0 +1,146 @@
+﻿@using EntityLayer.Concrete
+@model List<Heading>
+@{
+    ViewBag.Title = "MyHeading";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+@{
+    string color = "";
+    string kontrol = "";
+    string kontrolText = "Aktif Et";
+    string kontrolColor = "btn btn-danger btn-sm";
+}
+<!DOCTYPE html>
+<html>
+
+<body class="hold-transition sidebar-mini">
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Başlık İşlemleri</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                Başlık Adı
+                            </th>
+                            <th style="width: 20%">
+                                Oluşturan Yazar
+                            </th>
+                            <th style="width: 15%">
+                                Durum
+                            </th>
+                            <th style="width: 8%" class="text-center">
+                                Kategori
+                            </th>
+                            <th style="width: 20%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (@item.HeadingStatus == true)
+                            {
+                                kontrol = "badge badge-primary";
+                                kontrolText = "Pasif Et";
+                                kontrolColor = "btn btn-danger btn-sm";
+                            }
+                            if (@item.HeadingStatus == false)
+                            {
+                                kontrol = "badge badge-danger";
+                                kontrolText = "Aktif Et";
+                                kontrolColor = "btn btn-warning btn-sm";
+                            }
+                            if (item.Category.CategoryName == "Film")
+                            {
+                                color = "badge badge-warning";
+                            }
+                            else if (item.Category.CategoryName == "Spor")
+                            {
+                                color = "badge badge-success";
+                            }
+                            else if (item.Category.CategoryName == "Yazılım")
+                            {
+                                color = "badge badge-info";
+                            }
+                            else if (item.Category.CategoryName == "Dizi")
+                            {
+                                color = "badge badge-danger";
+                            }
+                            else
+                            {
+                                color = "badge badge-primary";
+                            }
+
+                            <tr>
+                                <td>
+                                    @item.HeadingID
+                                </td>
+                                <td>
+                                    <a>
+                                        @item.HeadingName
+                                    </a>
+                                    <br />
+                                    <small>
+                                        @(((DateTime)item.HeadingDate).ToString("dd-MM-yyyy"))
+                                    </small>
+                                </td>
+                                <td>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <img alt="Avatar" class="table-avatar" src="@item.Writer.WriterImage">
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <span class="@kontrol">@item.HeadingStatus</span>
+                                </td>
+                                <td class="project-state">
+                                    <span class="@color">@item.Category.CategoryName</span>
+                                </td>
+                                <td class="project-actions text-right">
+                                    <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading/@item.HeadingID">
+                                        <i class="fas fa-folder">
+                                            Yazılar
+                                        </i>
+                                    </a>
+                                    <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@item.HeadingID">
+                                        <i class="fas fa-pencil-alt">
+                                            Düzenle
+                                        </i>
+                                    </a>
+                                    <a class="@kontrolColor" href="/Heading/DeleteHeading/@item.HeadingID">
+                                        <i class="fas fa-trash">
+                                            @kontrolText
+                                        </i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+</body>
+</html>
+<a href="/Heading/AddHeading" class="btn btn-primary">Yeni Başlık Ekle</a>
+
+
+
