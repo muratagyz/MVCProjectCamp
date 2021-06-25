@@ -7,9 +7,6 @@
 
 @{
     string color = "";
-    string kontrol = "";
-    string kontrolText = "Aktif Et";
-    string kontrolColor = "btn btn-danger btn-sm";
 }
 <!DOCTYPE html>
 <html>
@@ -40,9 +37,6 @@
                             <th style="width: 20%">
                                 Oluşturan Yazar
                             </th>
-                            <th style="width: 15%">
-                                Durum
-                            </th>
                             <th style="width: 8%" class="text-center">
                                 Kategori
                             </th>
@@ -52,19 +46,7 @@
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
-                        {
-                            if (@item.HeadingStatus == true)
-                            {
-                                kontrol = "badge badge-primary";
-                                kontrolText = "Pasif Et";
-                                kontrolColor = "btn btn-danger btn-sm";
-                            }
-                            if (@item.HeadingStatus == false)
-                            {
-                                kontrol = "badge badge-danger";
-                                kontrolText = "Aktif Et";
-                                kontrolColor = "btn btn-warning btn-sm";
-                            }
+                        { 
                             if (item.Category.CategoryName == "Film")
                             {
                                 color = "badge badge-warning";
@@ -106,9 +88,6 @@
                                         </li>
                                     </ul>
                                 </td>
-                                <td>
-                                    <span class="@kontrol">@item.HeadingStatus</span>
-                                </td>
                                 <td class="project-state">
                                     <span class="@color">@item.Category.CategoryName</span>
                                 </td>
@@ -118,14 +97,14 @@
                                             Yazılar
                                         </i>
                                     </a>
-                                    <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@item.HeadingID">
+                                    <a class="btn btn-info btn-sm" href="/WriterPanel/EditHeading/@item.HeadingID">
                                         <i class="fas fa-pencil-alt">
                                             Düzenle
                                         </i>
                                     </a>
-                                    <a class="@kontrolColor" href="/Heading/DeleteHeading/@item.HeadingID">
-                                        <i class="fas fa-trash">
-                                            @kontrolText
+                                    <a class="btn btn-danger btn-sm" href="/WriterPanel/DeleteHeading/@item.HeadingID">
+                                        <i class="fas fa-pencil-alt">
+                                            Sil
                                         </i>
                                     </a>
                                 </td>
@@ -140,7 +119,7 @@
     </section>
 </body>
 </html>
-<a href="/Heading/AddHeading" class="btn btn-primary">Yeni Başlık Ekle</a>
+<a href="/WriterPanel/NewHeading" class="btn btn-primary">Yeni Başlık Ekle</a>
 
 
 

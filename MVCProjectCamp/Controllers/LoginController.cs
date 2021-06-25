@@ -33,7 +33,6 @@ namespace MVCProjectCamp.Controllers
             {
                 return RedirectToAction("Index");
             }
-            return View();
         }
     }
 }
