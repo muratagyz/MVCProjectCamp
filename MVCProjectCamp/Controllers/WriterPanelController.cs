@@ -1,4 +1,5 @@
 ﻿using BussinessLayer.Concrete;
+using DataAccessLayer.Concraee;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
@@ -13,15 +14,19 @@ namespace MVCProjectCamp.Controllers
     {
         HeadingManager hm = new HeadingManager(new EfHeadingDal());
         CategoryManager cm = new CategoryManager(new EfCategoryDal());
+        Context c = new Context();
+
         // GET: WriterPanel
         public ActionResult WriterProfile()
         {
             return View();
         }
-        [AllowAnonymous]
-        public ActionResult MyHeading()
+        public ActionResult MyHeading(string p)
         {
-            var values = hm.GetListByWriter();
+
+            p = (string)Session["WriterMail"];
+            var writerIdInfo = c.Writers.Where(x => x.WriterMail == p).Select(y => y.WriterID).FirstOrDefault();
+            var values = hm.GetListByWriter(writerIdInfo);
             return View(values);
         }
 
@@ -41,8 +46,10 @@ namespace MVCProjectCamp.Controllers
         [HttpPost]
         public ActionResult NewHeading(Heading p)
         {
+            string _mail = (string)Session["WriterMail"];
+            var writerMailInfo = c.Writers.Where(x => x.WriterMail == _mail).Select(y => y.WriterID).FirstOrDefault();
             p.HeadingDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            p.WriterID = 4;
+            p.WriterID = writerMailInfo;
             p.HeadingStatus = true;
             hm.HeadingAdd(p);
             return RedirectToAction("MyHeading");
@@ -50,6 +57,7 @@ namespace MVCProjectCamp.Controllers
         [HttpGet]
         public ActionResult EditHeading(int id)
         {
+            ViewBag.Id = id;
             List<SelectListItem> valuecategory = (from x in cm.GetList()
                                                   select new SelectListItem
                                                   {
