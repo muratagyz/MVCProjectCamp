@@ -84,5 +84,10 @@ namespace MVCProjectCamp.Controllers
             hm.HeadingDelete(headingvalue);
             return RedirectToAction("Index");
         }
+        public ActionResult HeadingReport()
+        {
+            var values = hm.GetList();
+            return View(values);
+        }
     }
 }

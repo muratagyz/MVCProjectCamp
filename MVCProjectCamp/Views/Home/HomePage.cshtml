@@ -56,7 +56,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <nav class="main-header d-flex">
             <div id="brand">
                 <div id="logo">
-                    <a href="index.html">
+                    <a href="#home">
                         <i class="fas fa-crosshairs"></i>
                     </a>
                 </div>
@@ -92,9 +92,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </li>
                     <li>
                         <a href="/Default/Heading/1">
-                            <button type="button" class="btn btn-warning text-white">
-                                Sözlük
-                            </button>
+                            Sözlük
                         </a>
                     </li>
                     <li class="login">
@@ -631,7 +629,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <a href="index.html">
                             <i class="fas fa-crosshairs"></i> Mvc Proje Kampı
                         </a>
-                    </h3>
+                    </h3><br />
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2601.8439489646503!2d29.05987069116103!3d41.11165489789859!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacb7c0ec65d4b%3A0x4e861e58114132b5!2zTcO8xZ9pciBGdWFkIFBhxZ9hIFlhbMSxc8Sx!5e0!3m2!1str!2str!4v1625140006130!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
             <hr>
@@ -811,58 +810,58 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="~/AdminLTE-3.0.4/web/js/jquery.roadmap.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             var events = [{
-                    date: 'Oct 2018 - Present',
-                    content: 'Company Name <small>Co-founder, Front-end Designer</small>'
-                },
-                {
-                    date: '2016 - 2018',
-                    content: 'Company Name <small>Senior Visual Designer</small>'
-                },
-                {
-                    date: '2013 - 2016',
-                    content: 'Company Name <small>Mid-level Designer</small>'
-                },
-                {
-                    date: '2012 - 2013',
-                    content: 'Company Name <small>Mid-level Designer</small>'
-                },
-                {
-                    date: '2012 - 2013',
-                    content: 'Company Name <small>Freelance</small>'
-                },
-                {
-                    date: '2011 - 2012',
-                    content: 'San Diego university  <small>For Design</small>'
-                },
-                {
-                    date: '2010 - 2011',
-                    content: 'New York university  <small>For Graphic Design</small>'
-                },
+                date: 'Oct 2018 - Present',
+                content: 'Company Name <small>Co-founder, Front-end Designer</small>'
+            },
+            {
+                date: '2016 - 2018',
+                content: 'Company Name <small>Senior Visual Designer</small>'
+            },
+            {
+                date: '2013 - 2016',
+                content: 'Company Name <small>Mid-level Designer</small>'
+            },
+            {
+                date: '2012 - 2013',
+                content: 'Company Name <small>Mid-level Designer</small>'
+            },
+            {
+                date: '2012 - 2013',
+                content: 'Company Name <small>Freelance</small>'
+            },
+            {
+                date: '2011 - 2012',
+                content: 'San Diego university  <small>For Design</small>'
+            },
+            {
+                date: '2010 - 2011',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
 
-                {
-                    date: '2009 - 2010',
-                    content: 'New York university  <small>For Graphic Design</small>'
-                },
+            {
+                date: '2009 - 2010',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
 
-                {
-                    date: '2008 - 2009',
-                    content: 'New York university  <small>For Graphic Design</small>'
-                },
-                {
-                    date: '2005 - 2008',
-                    content: 'Lorem Ipsum  <small>Add Description</small>'
-                },
-                {
-                    date: '2003 - 2005',
-                    content: 'Lorem IPsum  <small>Add Description</small>'
-                },
-                {
-                    date: '2001 - 2003',
-                    content: 'Lorem IPsum  <small>Add Description</small>'
-                }
+            {
+                date: '2008 - 2009',
+                content: 'New York university  <small>For Graphic Design</small>'
+            },
+            {
+                date: '2005 - 2008',
+                content: 'Lorem Ipsum  <small>Add Description</small>'
+            },
+            {
+                date: '2003 - 2005',
+                content: 'Lorem IPsum  <small>Add Description</small>'
+            },
+            {
+                date: '2001 - 2003',
+                content: 'Lorem IPsum  <small>Add Description</small>'
+            }
             ];
 
             $('#my-timeline').roadmap(events, {
@@ -893,8 +892,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="~/AdminLTE-3.0.4/web/js/move-top.js"></script>
     <script src="~/AdminLTE-3.0.4/web/js/easing.js"></script>
     <script>
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event) {
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
                 event.preventDefault();
                 $('html,body').animate({
                     scrollTop: $(this.hash).offset().top
@@ -904,15 +903,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     </script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             /*
-            						var defaults = {
-            							  containerID: 'toTop', // fading element id
-            							containerHoverID: 'toTopHover', // fading element hover id
-            							scrollSpeed: 1200,
-            							easingType: 'linear'
-            						 };
-            						*/
+                                    var defaults = {
+                                          containerID: 'toTop', // fading element id
+                                        containerHoverID: 'toTopHover', // fading element hover id
+                                        scrollSpeed: 1200,
+                                        easingType: 'linear'
+                                     };
+                                    */
 
             $().UItoTop({
                 easingType: 'easeOutQuart'

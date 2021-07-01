@@ -4,17 +4,35 @@
     ViewBag.Title = "GetAllContent";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<nav class="navbar navbar-dark bg-light ">
+  <br />
+    <!-- Navbar content -->
+    @using (Html.BeginForm("GetAllContent", "Content", FormMethod.Post))
+    {
+        <p class="mt-sm-2 text-primary">
+            Aranacak Kelimeyi Girin : @Html.TextBox("p", null, new { @class = " mr-sm-3 ml-sm-3 " })
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Arama Yap</button>
+        </p>
+    }
+</nav>
 <br />
-@using (Html.BeginForm("GetAllContent", "Content", FormMethod.Post))
-{
-    <p>
-        Aranacak Kelimeyi Girin : @Html.TextBox("p")
-        <input type="submit" value="Ara" />
-    </p>
-}
-<br />
-@foreach (var item in Model)
-{
-    <p>@item.ContentValue</p>
-    <br />
-}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Başlıklar</th>
+            <th scope="col">Yazar</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.HeadingID</td>
+                <td><a href="/Content/ContentByHeading/@item.HeadingID" >@item.ContentValue</a></td>
+                <td>@item.Writer.WriterName @item.Writer.WriterSurName</td>
+            </tr>
+        }
+    </tbody>
+</table>
