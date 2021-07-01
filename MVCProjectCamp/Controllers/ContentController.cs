@@ -1,4 +1,5 @@
 ﻿using BussinessLayer.Concrete;
+using DataAccessLayer.Concraee;
 using DataAccessLayer.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,13 @@ namespace MVCProjectCamp.Controllers
     {
         // GET: Content
         ContentManager cm = new ContentManager(new EfContentDal());
-        public ActionResult Index()
+
+        public ActionResult GetAllContent(string p="")
         {
-            return View();
+            var values = cm.GetList(p);
+            return View(values);
         }
+
         public ActionResult ContentByHeading(int id)
         {
             var contentvalues = cm.GetListByHeadingId(id);

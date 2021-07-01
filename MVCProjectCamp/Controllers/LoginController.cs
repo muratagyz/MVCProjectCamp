@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Concraee;
+﻿using BussinessLayer.Concrete;
+using DataAccessLayer.Concraee;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace MVCProjectCamp.Controllers
     [AllowAnonymous]
     public class LoginController : Controller
     {
+        WriterLoginManager wm = new WriterLoginManager(new EfWriterDal());
         // GET: Admin
         [HttpGet]
         public ActionResult Index()
@@ -45,8 +48,7 @@ namespace MVCProjectCamp.Controllers
         [HttpPost]
         public ActionResult WriterLogin(Writer w)
         {
-            Context c = new Context();
-            var writerUserInfo = c.Writers.FirstOrDefault(x => x.WriterMail == w.WriterMail && x.WriterPassword == w.WriterPassword);
+            var writerUserInfo = wm.GetWriter(w.WriterMail, w.WriterPassword);
             if (writerUserInfo != null)
             {
                 FormsAuthentication.SetAuthCookie(writerUserInfo.WriterMail, false);

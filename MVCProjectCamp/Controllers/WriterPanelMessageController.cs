@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DataAccessLayer.Concraee;
 
 namespace MVCProjectCamp.Controllers
 {
@@ -19,12 +20,14 @@ namespace MVCProjectCamp.Controllers
 
         public ActionResult Inbox()
         {
-            var messagelist = mm.GetListInbox();
+            string p = (string)Session["WriterMail"];
+            var messagelist = mm.GetListInbox(p);
             return View(messagelist);
         }
         public ActionResult SendBox()
         {
-            var messagelist = mm.GetListSendbox();
+            string p = (string)Session["WriterMail"];
+            var messagelist = mm.GetListSendbox(p);
             return View(messagelist);
         }
         public PartialViewResult MessageListMenu()
@@ -50,10 +53,11 @@ namespace MVCProjectCamp.Controllers
         [HttpPost]
         public ActionResult NewMessage(Message p)
         {
+            string Mail = (string)Session["WriterMail"];
             ValidationResult results = messageValidator.Validate(p);
             if (results.IsValid)
             {
-                p.SenderMail = "aslıkaya@gmail.com";
+                p.SenderMail = Mail;
                 p.MessageDate = DateTime.Parse(DateTime.Now.ToShortDateString());
                 mm.MessageAdd(p);
                 return RedirectToAction("SendBox");
