@@ -18,6 +18,11 @@ namespace BussinessLayer.Concrete
             _adminDal = adminDal;
         }
 
+        public void AdminAdd(Admin admin)
+        {
+            _adminDal.Insert(admin);
+        }
+
         public void AdminDelete(Admin admin)
         {
             throw new NotImplementedException();
@@ -25,7 +30,7 @@ namespace BussinessLayer.Concrete
 
         public void AdminUpdate(Admin admin)
         {
-            throw new NotImplementedException();
+            _adminDal.Update(admin);
         }
 
         public void CategoryAdd(Admin admin)
@@ -35,7 +40,7 @@ namespace BussinessLayer.Concrete
 
         public Admin GetByID(int id)
         {
-            throw new NotImplementedException();
+            return _adminDal.Get(x => x.AdminID == id);
         }
 
         public List<Admin> GetList()
